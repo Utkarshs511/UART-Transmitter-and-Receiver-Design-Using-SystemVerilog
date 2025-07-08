@@ -2,7 +2,7 @@
 
 This project implements a **Universal Asynchronous Receiver/Transmitter (UART)** communication system using **SystemVerilog**. The design features modular development of the Transmitter, Receiver, and Baud Rate Generator with FSM-based control and timing synchronization. It is simulated using testbenches with waveform analysis to verify correctness.
 
----
+
 
 ##  Features
 
@@ -16,7 +16,7 @@ This project implements a **Universal Asynchronous Receiver/Transmitter (UART)**
 -  Supports **6 different baud rate selections**
 -  Error handling for incorrect baud rate configuration
 
----
+
 
 ##  Module Overview
 
@@ -45,7 +45,7 @@ This project implements a **Universal Asynchronous Receiver/Transmitter (UART)**
 - Provides input stimulus and checks outputs
 - Uses `$display` and waveform tools
 
----
+
 
 ##  Simulation Results
 
@@ -66,7 +66,7 @@ This project implements a **Universal Asynchronous Receiver/Transmitter (UART)**
 - Proper framing and byte capture
 - Detects parity errors on mismatch
 
----
+
 
 ##  Learning Outcomes
 
@@ -76,4 +76,3 @@ This project implements a **Universal Asynchronous Receiver/Transmitter (UART)**
 - Testbench-driven validation
 - Hardware modeling in HDL
 
----
