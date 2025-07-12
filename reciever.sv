@@ -57,18 +57,20 @@ module reciever(
                 end
             end
             data:begin
-                if(count==8)begin
-                    state<=par;
-                end
-                else if(count==0)begin
+               
+               if(count==0)begin
                     data_load[count]<=data_in;
                     count<=count+1;
                     parity<=data_in;
+                    
                 end
                 else begin
                     data_load[count]<=data_in;
                     count<=count+1;
                     parity<=parity^data_in;
+                    if(count==7)begin
+                        state<=par;
+                    end
                 end
             end
             par: begin
