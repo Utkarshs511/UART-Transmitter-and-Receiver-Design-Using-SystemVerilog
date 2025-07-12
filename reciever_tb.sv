@@ -94,7 +94,6 @@ module reciever_tb;
         send_bit(1); 
         send_bit(0); 
         send_bit(1);
-        send_bit(0);
         send_bit(0); // wrong parity bit 
         send_bit(1); // stop bit
 
