@@ -40,18 +40,18 @@ This project implements a **Universal Asynchronous Receiver/Transmitter (UART)**
 - Supports 6 selectable baud rates
 - Indicates error on incorrect configuration
 
-## 🧪 Verification Components
+##  Verification Components
 
-### 🔹 uart_pkg.sv
+###  uart_pkg.sv
 
 - Contains shared parameters and definitions
 - Improves code modularity and reuse
 - Stores UART configuration constants
 
 
-### 🔹 environment.sv
+###  environment.sv
 
- Implements the verification environment, which includes:
+-Implements the verification environment, which includes:
 -Stimulus generation
 -DUT control signals
 -Functional monitoring
@@ -59,7 +59,7 @@ This project implements a **Universal Asynchronous Receiver/Transmitter (UART)**
 Ensures structured validation of UART behaviour.
 
 
-### 🔹 tb_top.sv
+###  tb_top.sv
 
 - Top-level testbench module
 - Instantiates DUT (`top_module`)
