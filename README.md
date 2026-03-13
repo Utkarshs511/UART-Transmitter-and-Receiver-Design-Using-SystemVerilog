@@ -40,12 +40,34 @@ This project implements a **Universal Asynchronous Receiver/Transmitter (UART)**
 - Supports 6 selectable baud rates
 - Indicates error on incorrect configuration
 
-### `testbench.sv`
-- Simulates UART TX-RX communication
-- Provides input stimulus and checks outputs
-- Uses `$display` and waveform tools
+## 🧪 Verification Components
+
+### 🔹 uart_pkg.sv
+
+- Contains shared parameters and definitions
+- Improves code modularity and reuse
+- Stores UART configuration constants
 
 
+### 🔹 environment.sv
+
+ Implements the verification environment, which includes:
+-Stimulus generation
+-DUT control signals
+-Functional monitoring
+-Simulation coordination
+Ensures structured validation of UART behaviour.
+
+
+### 🔹 tb_top.sv
+
+- Top-level testbench module
+- Instantiates DUT (`top_module`)
+- Applies stimulus and observes outputs
+- Displays simulation messages using `$display`
+- Supports waveform dumping for debugging
+
+---
 
 ##  Simulation Results
 
