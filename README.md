@@ -51,12 +51,12 @@ This project implements a **Universal Asynchronous Receiver/Transmitter (UART)**
 
 ###  environment.sv
 
--Implements the verification environment, which includes:
+-Implements the verification environment
 -Stimulus generation
 -DUT control signals
 -Functional monitoring
 -Simulation coordination
-Ensures structured validation of UART behaviour.
+-Ensures structured validation of UART behaviour.
 
 
 ###  tb_top.sv
