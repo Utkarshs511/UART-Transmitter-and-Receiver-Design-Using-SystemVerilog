@@ -30,7 +30,7 @@ module transmitter(
     output  logic err
     );
      typedef enum logic [2:0] {
-        idle, start, data, par, stop
+        idle, start, data, par, stop, extra
     } sta;
     sta state;
     logic [7:0] data_load;
@@ -38,8 +38,8 @@ module transmitter(
     logic parity;
     logic send;
     always@(*)begin
-        if(data_load!=data_bus && state!=idle)begin
-            err<=1;
+        if (busy && data_load != data_bus)begin
+            err = 1;
         end
         else begin
             err<=0;
@@ -51,9 +51,10 @@ module transmitter(
             state<=idle;
             busy<=0;
             count<=0;
-            send<=0;
+            send <= 0;
+            data_load<= 0; 
         end
-        else if(enable)begin
+        else if(enable==1 && send==0)begin
             case(state)
                 idle: begin
                      data_out<=1;
@@ -70,28 +71,31 @@ module transmitter(
                     state<=data;
                  end
                  data: begin
-                    if(count<8)begin
+                   
                         data_out<=data_load[count];
                         count<=count+1;
-                    end
-                    else begin
-                        state<=par;
-                        count<=0;
-                    end
+                        state<=(count==7)? par:data;
+                    
                  end
                  par:begin
-                    data_out<=parity;
+                    data_out<=^data_load;
                     state<=stop;
+                    count<=0;
                  end
                  stop: begin
                     data_out<=1;
-                    state<=idle;
+                    state<=extra;
                     busy<=0;
+                 end
+                  extra: begin
+                    data_out<=1;
+                    state<=idle;
                     send<=1;
-                end
+                  end
+                    
           endcase  
      end
-     else if(enable==0) begin
+     else if(send==1) begin
           send<=0;
           data_out<=1;
           busy<=0;
