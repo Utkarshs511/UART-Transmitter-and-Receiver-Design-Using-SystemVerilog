@@ -33,12 +33,12 @@ module baud_rate_generator(
     logic [31:0] fre=100000000;//100MHz
     always@(*)begin
         case (sel)
-            3'b000: baud_time<=fre/(4*4800);//4800
-            3'b001: baud_time<=fre/(4*9600);//9600
-            3'b010: baud_time<=fre/(4*19200);//19200
-            3'b011: baud_time<=fre/(4*38400);//38400
-            3'b100: baud_time<=fre/(4*57600);//57600
-            3'b101: baud_time<=fre/(4*115200);//115200
+            3'b000: baud_time<=fre/(2*4800);//4800
+            3'b001: baud_time<=fre/(2*9600);//9600
+            3'b010: baud_time<=fre/(2*19200);//19200
+            3'b011: baud_time<=fre/(2*38400);//38400
+            3'b100: baud_time<=fre/(2*57600);//57600
+            3'b101: baud_time<=fre/(2*115200);//115200
             default: baud_time<=32'hffffffff;//undefined
         endcase
         counter<=baud_time;
